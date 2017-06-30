@@ -11,6 +11,13 @@ app.config['DEBUG'] = True
 @app.route("/confirmation", methods=['POST'])
 def confirm():
     user = request.form['username']
+    if (len(user) > 20) or (len(user) > 3) or (user == ""):
+        error = "Username must be at least 3 characters long, no longer than 20 characters, and contain no spaces."
+        return redirect("/?error=" + error)
+
+
+
+    
     return render_template('confirmation.html', user = user)
 
 
