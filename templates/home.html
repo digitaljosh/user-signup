@@ -5,27 +5,37 @@
         <form action="/confirmation" method="post">
         <label>Username</label>
         <input type="text" name="username" value=""/>
+        {% if error_username %}
+          <span class='error'>{{ error_username }}</span>
+        {% endif %}
+        
         </br>
         </br>
         <label>Password</label>
         <input type="password" name="password" value=""/>
+        {% if error_password %}
+          <span class='error'>{{ error_password }}</span>
+        {% endif %}
+
         </br>
         </br>
         <label>Verify Password</label>
         <input type="password" name="verify" value=""/>
+        {% if error_verify %}
+          <span class='error'>{{ error_verify }}</span>
+        {% endif %}
+
         </br>
         </br>
         <label>Email (optional)</label>
         <input type="text" name="email" value=""/>
+        {% if error_email %}
+          <span class='error'>{{ error_email }}</span>
+        {% endif %}
         </br>
         <input type="submit" value="Submit"/>
         </form>
 
-
-
-{% if error %}
-  <p class='error'>{{ error }}</p>
-{% endif %}
 
 
 {% endblock %}

@@ -16,40 +16,35 @@ def confirm():
     email = request.form['email']
 
     if len(user) < 3 or len(user) > 20 or user == "":
-        error = "Username must be between 3 and 20 characters long and contain no spaces."
-        return redirect("/?error=" + error)
+        error_username = "Username must be between 3 and 20 characters long and contain no spaces."
+        return render_template("home.html", error_username = error_username)
     
     if len(password) < 3 or len(password) > 20 or password == "":
-        error = "Password must be between 3 and 20 characters long and contain no spaces."
-        return redirect("/?error=" + error)
+        error_password = "Password must be between 3 and 20 characters long and contain no spaces."
+        return render_template("home.html", error_password = error_password, username = username)
 
     if password_verify != password:
-        error = "Password verification must match password."
-        return redirect("/?error=" + error)
+        error_verify = "Password verification must match password."
+        return render_template("home.html", error_verify = error_verify)
     
     if email != "":
         if "@" not in email or "." not in email:
-            error = "Invalid email"
-            return redirect("/?error=" + error)
+            error_email = "Invalid email"
+            return render_template("home.html", error_email = error_email)
     
         if len(email) < 3 or len(email) > 20:
-            error = "Invalid email"
-            return redirect("/?error=" + error)
-
+            error_email = "Invalid email"
+            return render_template("home.html", error_email = error_email)
     
 
-    
-
-
-
-    
     return render_template('confirmation.html', user = user)
 
 
 @app.route("/")
 def index():
-    encoded_error = request.args.get("error")
-    return render_template('home.html', error=encoded_error and cgi.escape(encoded_error, quote=True))
-
+    
+            
+    return render_template('home.html')
+    # and cgi.escape(encoded_error, quote=True)
 
 app.run()
