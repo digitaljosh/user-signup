@@ -4,7 +4,7 @@
 
         <form action="/confirmation" method="post">
         <label>Username</label>
-        <input type="text" name="username" value=""/>
+        <input type="text" name="username" value="{{ request.form['username'] }}"/>
         {% if error_username %}
           <span class='error'>{{ error_username }}</span>
         {% endif %}
@@ -28,7 +28,7 @@
         </br>
         </br>
         <label>Email (optional)</label>
-        <input type="text" name="email" value=""/>
+        <input type="text" name="email" value="{{ request.form['email'] }}"/>
         {% if error_email %}
           <span class='error'>{{ error_email }}</span>
         {% endif %}
