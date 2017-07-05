@@ -15,11 +15,11 @@ def confirm():
     email = request.form['email']
 
     if len(user) < 3 or len(user) > 20 or " " in user:
-        error_username = "Username must be between 3 and 20 characters long and contain no spaces."
+        error_username = "Invalid username."
         return render_template("home.html", error_username = error_username)
     
     if len(password) < 3 or len(password) > 20 or " " in password:
-        error_password = "Password must be between 3 and 20 characters long and contain no spaces."
+        error_password = "Invalid password."
         return render_template("home.html", error_password = error_password)
 
     if password_verify != password:

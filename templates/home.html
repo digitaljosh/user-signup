@@ -1,41 +1,49 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+      <div id="div">
         <form class="form" action="/confirmation" method="post">
-        <label class="label">Username</label>
-        <input type="text" name="username" value="{{ request.form['username'] }}"/>
-        {% if error_username %}
-          <span class='error'>{{ error_username }}</span>
-        {% endif %}
+          <p class="paragraph">
+            <label class="label">Username</label>
+            <input clas="input" type="text" name="username" value="{{ request.form['username'] }}"/>
+            {% if error_username %}
+              <span class='error'>{{ error_username }}</span>
+            {% endif %}
+          </p>
+    
+          <p class="paragraph">
+            <label class="label">Password</label>
+            <input class="input" type="password" name="password" value=""/>
+            {% if error_password %}
+              <span class='error'>{{ error_password }}</span>
+            {% endif %}
+          </p>
+
+          <p class="paragraph">
+            <label class="label">Verify Password</label>
+            <input class="input" type="password" name="verify" value=""/>
+            {% if error_verify %}
+              <span class='error'>{{ error_verify }}</span>
+            {% endif %}
+          </p>
+
         
-        </br>
-        </br>
-        <label class="label">Password</label>
-        <input type="password" name="password" value=""/>
-        {% if error_password %}
-          <span class='error'>{{ error_password }}</span>
-        {% endif %}
+          <p class="paragraph">
+            <label class="label">Email (optional)</label>
+            <input class="input" type="text" name="email" value="{{ request.form['email'] }}"/>
+            {% if error_email %}
+              <span class='error'>{{ error_email }}</span>
+            {% endif %}
+          </p>
 
-        </br>
-        </br>
-        <label class="label">Verify Password</label>
-        <input type="password" name="verify" value=""/>
-        {% if error_verify %}
-          <span class='error'>{{ error_verify }}</span>
-        {% endif %}
+          <div id="submit">
+          <p>
+            <input type="submit" value="Submit"/>
+          </p>
+          </div>
 
-        </br>
-        </br>
-        <label class="label">Email (optional)</label>
-        <input type="text" name="email" value="{{ request.form['email'] }}"/>
-        {% if error_email %}
-          <span class='error'>{{ error_email }}</span>
-        {% endif %}
-        </br>
-        <input type="submit" value="Submit"/>
         </form>
-
+      </div>
 
 
 {% endblock %}
