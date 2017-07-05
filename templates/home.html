@@ -2,8 +2,8 @@
 
 {% block content %}
 
-        <form action="/confirmation" method="post">
-        <label>Username</label>
+        <form class="form" action="/confirmation" method="post">
+        <label class="label">Username</label>
         <input type="text" name="username" value="{{ request.form['username'] }}"/>
         {% if error_username %}
           <span class='error'>{{ error_username }}</span>
@@ -11,7 +11,7 @@
         
         </br>
         </br>
-        <label>Password</label>
+        <label class="label">Password</label>
         <input type="password" name="password" value=""/>
         {% if error_password %}
           <span class='error'>{{ error_password }}</span>
@@ -19,7 +19,7 @@
 
         </br>
         </br>
-        <label>Verify Password</label>
+        <label class="label">Verify Password</label>
         <input type="password" name="verify" value=""/>
         {% if error_verify %}
           <span class='error'>{{ error_verify }}</span>
@@ -27,7 +27,7 @@
 
         </br>
         </br>
-        <label>Email (optional)</label>
+        <label class="label">Email (optional)</label>
         <input type="text" name="email" value="{{ request.form['email'] }}"/>
         {% if error_email %}
           <span class='error'>{{ error_email }}</span>

@@ -42,14 +42,9 @@ def confirm():
             return render_template("home.html", error_email = error_email)
 
         if at_symbol_count > 1 or period_count > 1:
-            error_email = "Invalid email - too many"
+            error_email = "Invalid email"
             return render_template("home.html", error_email = error_email)
-
-
-        
-
-
-        
+     
     
 
     return render_template('confirmation.html', user = user)
