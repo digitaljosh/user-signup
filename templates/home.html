@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+
       <div id="div">
         <form class="form" action="/confirmation" method="post">
+        <!--
+          Username input
+        -->
           <p class="paragraph">
             <label class="label">Username</label>
             <input clas="input" type="text" name="username" value="{{ request.form['username'] }}"/>
@@ -10,7 +14,10 @@
               <span class='error'>{{ error_username }}</span>
             {% endif %}
           </p>
-    
+        
+        <!--
+          Password input
+        -->
           <p class="paragraph">
             <label class="label">Password</label>
             <input class="input" type="password" name="password" value=""/>
@@ -19,6 +26,9 @@
             {% endif %}
           </p>
 
+        <!--
+          Password verify input
+        -->
           <p class="paragraph">
             <label class="label">Verify Password</label>
             <input class="input" type="password" name="verify" value=""/>
@@ -27,7 +37,9 @@
             {% endif %}
           </p>
 
-        
+        <!--
+          Email input
+        -->
           <p class="paragraph">
             <label class="label">Email (optional)</label>
             <input class="input" type="text" name="email" value="{{ request.form['email'] }}"/>
@@ -36,6 +48,9 @@
             {% endif %}
           </p>
 
+        <!--
+          Submit button
+        -->
           <div id="submit">
           <p>
             <input type="submit" value="Submit"/>

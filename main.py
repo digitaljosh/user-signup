@@ -9,7 +9,10 @@ app.config['DEBUG'] = True
 
 @app.route("/confirmation", methods=['POST', 'GET'])
 def confirm():
-    '''Checks user input data for errors and returns error messages. If none found, directs to confirmation page.'''
+
+    '''
+    Checks user input data for errors and returns error messages. If none found, directs to confirmation page.
+    '''
 
     # gets user input data from form
     user = request.form['username']
@@ -75,7 +78,12 @@ def confirm():
 
 @app.route("/")
 def index():
-    '''home page that displays user signup form'''
+
+    '''
+    home page that displays user signup form
+    '''
+
     return render_template('home.html')
 
-app.run()
+if __name__ == '__main__':
+    app.run()
